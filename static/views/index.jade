@@ -1,9 +1,16 @@
 html
   head
     title= title
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css')
+    link(rel='stylesheet' href='../css/milligram.min.css')
   body
-    h1= message
-    button(name='start' onclick='startPomodoro()') Start your day!
-    #timer 25:00
-    button(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
+    .container
+      h1.row= message
+      .row
+        button.column-50(name='start' onclick='startPomodoro()') Start your day!
+      .row
+        h2#timer 25:00
+      .row
+        button.button-outline(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
   script(src="../js/pomodoro.js")
