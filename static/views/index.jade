@@ -1,0 +1,9 @@
+html
+  head
+    title= title
+  body
+    h1= message
+    button(name='start' onclick='startPomodoro()') Start your day!
+    #timer 25:00
+    button(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
+  script(src="../js/pomodoro.js")
