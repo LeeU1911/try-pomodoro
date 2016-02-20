@@ -1,0 +1,31 @@
+{
+  "name": "web-pomodoro",
+  "version": "0.0.1",
+  "description": "Website that is used to serve Pomodoro technique",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeU1911/web-pomodoro.git"
+  },
+  "keywords": [
+    "pomodoro",
+    "web-app",
+    "tool",
+    "productivity",
+    "25",
+    "minutes"
+  ],
+  "author": "Vu Tan Le",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeeU1911/web-pomodoro/issues"
+  },
+  "homepage": "https://github.com/LeeU1911/web-pomodoro#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  }
+}
