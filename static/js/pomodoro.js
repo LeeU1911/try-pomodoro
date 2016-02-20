@@ -1,15 +1,15 @@
-var minute = 0;
-var second = 3;
+var minute = 24;
+var second = 60;
 var interval = undefined;
 var isPause = false;
 function initPomodoro(){
-  minute = 0;
-  second = 3;
+  minute = 24;
+  second = 60;
 }
 
 function initBreak(){
-  minute = 0;
-  second = 3;
+  minute = 4;
+  second = 60;
 }
 function startPomodoro(){
   initPomodoro();
