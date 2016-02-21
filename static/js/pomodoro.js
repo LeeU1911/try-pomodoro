@@ -2,21 +2,43 @@ var minute = 24;
 var second = 60;
 var interval = undefined;
 var isPause = false;
+var pomodoroCount = 0;
+var pomodoroDoneEvent = new Event('pomodoroDone');
+
+function startTheDay(){
+  document.getElementById('timer').addEventListener('pomodoroDone', function(e){
+    console.log(e);
+    pomodoroCount++;
+  }, false);
+  startPomodoro();
+}
+function initTimer(min, sec){
+  minute = min;
+  second = sec;
+}
 function initPomodoro(){
-  minute = 24;
-  second = 60;
+  initTimer(24, 60);
+  // initTimer(0, 5);
 }
 
-function initBreak(){
-  minute = 4;
-  second = 60;
+function initShortBreak(){
+  initTimer(4, 60);
+  // initTimer(0, 3);
+}
+
+function initLongBreak(){
+  initTimer(14, 60);
+  // initTimer(0, 7);
 }
 function startPomodoro(){
   initPomodoro();
-  var message = "One Pomodoro is done! Now take a 5-minute break!";
-  interval = setInterval(startTimer, 1000, doneNotification, message, startBreak);
+  var message = "1 Pomodoro is done! Now take a 5-minute short-break!";
+  if(pomodoroCount > 0 && pomodoroCount % 3 == 0){
+    message = "4 Pomodoro is done! Now take a 15-minute long-break!";
+  }
+  interval = setInterval(startTimer, 1000, doneNInvokeNextStep, message, startBreak, pomodoroDoneEvent);
 }
-function startTimer(notification, message, nextStep){
+function startTimer(notification, message, nextStep, event){
   if(isPause){
     return;
   }
@@ -25,6 +47,9 @@ function startTimer(notification, message, nextStep){
     + checkTime(second);
   if(second == 0){
     if(minute == 0){
+      if(event){
+        document.getElementById('timer').dispatchEvent(event);
+      }
       notification(message, nextStep);
       return;
     }else{
@@ -39,7 +64,13 @@ function checkTime(i){
   }
   return i;
 }
-function doneNotification(message, nextStep){
+function doneNInvokeNextStep(message, nextStep){
+  displayNotification(message);
+  clearInterval(interval);
+  nextStep();
+}
+
+function displayNotification(message){
   if (!("Notification" in window)) {
     alert(message);
   } else if (Notification.permission === "granted") {
@@ -53,22 +84,27 @@ function doneNotification(message, nextStep){
   } else {
     alert(message);
   }
-
-  clearInterval(interval);
-  nextStep();
 }
 
 function startBreak(){
-  initBreak();
+  if(pomodoroCount > 0 && pomodoroCount % 4 == 0){
+    initLongBreak();
+  }else{
+    initShortBreak();
+  }
   var message = "Break is done! Now start another Pomodoro";
-  interval = setInterval(startTimer, 1000, doneNotification, message, startPomodoro);
+  interval = setInterval(startTimer, 1000, doneNInvokeNextStep, message, startPomodoro);
 }
 
 function pauseTimer(){
   isPause = !isPause;
   if(isPause){
-    document.getElementById('pauseButton').innerHTML = 'Resume';
+    changePauseButtonText('Resume');
   }else{
-    document.getElementById('pauseButton').innerHTML = 'Pause';
+    changePauseButtonText('Pause');
   }
+}
+
+function changePauseButtonText(text){
+  document.getElementById('pauseButton').innerHTML = text;
 }
