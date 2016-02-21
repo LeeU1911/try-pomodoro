@@ -37,6 +37,7 @@ More info: http://pomodorotechnique.com
 * Confirmation if page is refresh or pomodoro is paused
 * Record interruptions when pausing/resuming pomodoro
 * Audio notifications
+* Reset timer
 * Task lists
 * Social networks account login
 * Save data per user
