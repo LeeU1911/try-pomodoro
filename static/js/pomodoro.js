@@ -4,9 +4,12 @@ var interval = undefined;
 var isPause = false;
 var pomodoroCount = 0;
 var pomodoroDoneEvent = new Event('pomodoroDone');
+const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
+
+var timer = document.getElementById('timer');
 
 function startTheDay(){
-  document.getElementById('timer').addEventListener('pomodoroDone', function(e){
+  timer.addEventListener('pomodoroDone', function(e){
     console.log(e);
     pomodoroCount++;
   }, false);
@@ -36,27 +39,40 @@ function startPomodoro(){
   if(pomodoroCount > 0 && pomodoroCount % 3 == 0){
     message = "4 Pomodoro is done! Now take a 15-minute long-break!";
   }
-  interval = setInterval(startTimer, 1000, doneNInvokeNextStep, message, startBreak, pomodoroDoneEvent);
+  interval = setInterval(startTimer, 1000, types.POMODORO, doneNInvokeNextStep, message, startBreak, pomodoroDoneEvent);
 }
-function startTimer(notification, message, nextStep, event){
+function startTimer(type, doneNInvokeNextStep, message, nextStep, event){
   if(isPause){
     return;
   }
   second--;
-  document.getElementById('timer').innerHTML = checkTime(minute) + ":"
-    + checkTime(second);
+  updateTimer(minute, second, type);
+
   if(second == 0){
     if(minute == 0){
       if(event){
-        document.getElementById('timer').dispatchEvent(event);
+        timer.dispatchEvent(event);
       }
-      notification(message, nextStep);
+      doneNInvokeNextStep(message, nextStep);
       return;
     }else{
       minute--;
     }
     second = 59;
   }
+}
+
+function updateTimer(minute, second, type){
+  var time =  checkTime(minute) + ":"
+    + checkTime(second);
+  var title = document.getElementsByTagName("title")[0];
+  timer.innerHTML = time;
+  if(type == types.POMODORO){
+    title.innerHTML = "Pomodoro (" + time + ")";
+  }else if(type == types.BREAK){
+    title.innerHTML = "Break (" + time + ")";
+  }
+
 }
 function checkTime(i){
   if(i < 10) {
@@ -93,7 +109,7 @@ function startBreak(){
     initShortBreak();
   }
   var message = "Break is done! Now start another Pomodoro";
-  interval = setInterval(startTimer, 1000, doneNInvokeNextStep, message, startPomodoro);
+  interval = setInterval(startTimer, 1000, types.BREAK, doneNInvokeNextStep, message, startPomodoro);
 }
 
 function pauseTimer(){
