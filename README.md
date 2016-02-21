@@ -32,6 +32,7 @@ More info: http://pomodorotechnique.com
 
 #Coming soon:
 * Timer in title of page
+* Dismiss notification after 30 seconds
 * Rebrush UI
 * Record number of pomodoros and breaks
 * Confirmation if page is refresh or pomodoro is paused
