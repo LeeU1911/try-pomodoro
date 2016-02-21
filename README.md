@@ -30,9 +30,9 @@ More info: http://pomodorotechnique.com
 * Pause/Resume pomodoros/breaks
 * Long-break (15 minutes) after 4 pomodoros
 * Timer in title of page
+* Rebrush UI
 
 #Coming soon:
-* Rebrush UI
 * Record number of pomodoros and breaks
 * Confirmation if page is refresh or pomodoro is paused
 * Record interruptions when pausing/resuming pomodoro
@@ -43,6 +43,8 @@ More info: http://pomodorotechnique.com
 * Save data per user
 * Dismiss notification after 30 seconds
 * Start button in notification box - consider not start pomodoro or break automatically
+* Share with friends and like on facebook
+* Add google analytics
 
 #Feedback
 Feedback and bug reports are very welcomed to be created under Github issue tracker or sent to letanvu1911@gmail.com
