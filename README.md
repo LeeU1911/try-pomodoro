@@ -10,7 +10,7 @@ App is live here: https://web-pomodoro.herokuapp.com/
 * Start a Pomodoro (25 minutes)
 * Desktop notifications (permission required) when a pomodoro/break is up
 * Short-break (5 minutes) is automatically triggered after a pomodoro
-* Pause/Resume pomodoros
+* Pause/Resume pomodoros/breaks
 
 #Coming soon:
 * Long-break (15 minutes) after 4 pomodoros
