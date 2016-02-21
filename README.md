@@ -28,9 +28,9 @@ More info: http://pomodorotechnique.com
 * Desktop notifications (permission required) when a pomodoro/break is up
 * Short-break (5 minutes) is automatically triggered after a pomodoro
 * Pause/Resume pomodoros/breaks
+* Long-break (15 minutes) after 4 pomodoros
 
 #Coming soon:
-* Long-break (15 minutes) after 4 pomodoros
 * Timer in title of page
 * Rebrush UI
 * Record number of pomodoros and breaks
