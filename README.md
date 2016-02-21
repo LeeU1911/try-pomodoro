@@ -29,10 +29,9 @@ More info: http://pomodorotechnique.com
 * Short-break (5 minutes) is automatically triggered after a pomodoro
 * Pause/Resume pomodoros/breaks
 * Long-break (15 minutes) after 4 pomodoros
+* Timer in title of page
 
 #Coming soon:
-* Timer in title of page
-* Dismiss notification after 30 seconds
 * Rebrush UI
 * Record number of pomodoros and breaks
 * Confirmation if page is refresh or pomodoro is paused
@@ -42,6 +41,8 @@ More info: http://pomodorotechnique.com
 * Task lists
 * Social networks account login
 * Save data per user
+* Dismiss notification after 30 seconds
+* Start button in notification box - consider not start pomodoro or break automatically
 
 #Feedback
 Feedback and bug reports are very welcomed to be created under Github issue tracker or sent to letanvu1911@gmail.com
