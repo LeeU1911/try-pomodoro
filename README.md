@@ -44,6 +44,7 @@ More info: http://pomodorotechnique.com
 * Dismiss notification after 30 seconds
 * Start button in notification box - consider not start pomodoro or break automatically
 * Share with friends and like on facebook
+* Add google analytics
 
 #Feedback
 Feedback and bug reports are very welcomed to be created under Github issue tracker or sent to letanvu1911@gmail.com
