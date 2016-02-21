@@ -30,7 +30,7 @@ More info: http://pomodorotechnique.com
 * Pause/Resume pomodoros/breaks
 * Long-break (15 minutes) after 4 pomodoros
 * Timer in title of page
-* Rebrush UI
+* Modern UI
 * Record number of pomodoros and breaks
 
 #Coming soon:
