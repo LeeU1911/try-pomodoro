@@ -3,17 +3,28 @@ var second = 60;
 var interval = undefined;
 var isPause = false;
 var pomodoroCount = 0;
+var breakCount = 0;
 var pomodoroDoneEvent = new Event('pomodoroDone');
+var breakDoneEvent = new Event('breakDone');
+
 const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
 var timer = document.getElementById('timer');
+var numOfPomodoro = document.getElementById('pomodoro-done');
 
 function startTheDay(){
   timer.addEventListener('pomodoroDone', function(e){
-    console.log(e);
-    pomodoroCount++;
+    updatePomodoroCount();
+  }, false);
+  timer.addEventListener('breakDone', function(e){
+    breakCount++;
   }, false);
   startPomodoro();
+}
+
+function updatePomodoroCount(){
+  pomodoroCount++;
+  numOfPomodoro.innerHTML += "X "
 }
 function initTimer(min, sec){
   minute = min;
@@ -109,7 +120,7 @@ function startBreak(){
     initShortBreak();
   }
   var message = "Break is done! Now start another Pomodoro";
-  interval = setInterval(startTimer, 1000, types.BREAK, doneNInvokeNextStep, message, startPomodoro);
+  interval = setInterval(startTimer, 1000, types.BREAK, doneNInvokeNextStep, message, startPomodoro, breakDoneEvent);
 }
 
 function pauseTimer(){

@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8081;
 app.set('views', './static/views');
 app.set('view engine', 'jade');
 
-app.use(compress()); 
+app.use(compress());
 app.use(express.static('build'));
 app.use(express.static('static'));
 
