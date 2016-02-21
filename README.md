@@ -31,6 +31,7 @@ More info: http://pomodorotechnique.com
 
 #Coming soon:
 * Long-break (15 minutes) after 4 pomodoros
+* Timer in title of page
 * Rebrush UI
 * Record number of pomodoros and breaks
 * Confirmation if page is refresh or pomodoro is paused
