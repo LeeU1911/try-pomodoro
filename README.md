@@ -20,6 +20,7 @@ It has below steps:
     1. When you're working in a Pomodoro, if there is any distraction, record an -, note down the distraction to do it later
     2. When Pomodoro is up, stop doing immediately.
     3. During break time, don't think or discuss about the tasks
+
 More info: http://pomodorotechnique.com
 
 #Features:
