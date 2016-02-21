@@ -6,6 +6,22 @@ Press Start button will trigger the timer which will send a desktop alert after 
 
 App is live here: https://web-pomodoro.herokuapp.com/
 
+What is Pomodoro technique? 
+In short, it is a technique to boost your productivity in daily work. 
+
+It has below steps:
+
+1. At the beginning of the day, list out and prioritize your tasks
+2. Work on your task for a Pomodoro (25 minutes) without distraction.
+3. When 25 minutes is up, record an X for that task.
+4. Take a 5-minute short-break
+5. Every 4 Pomodoros, take a 15-minute long-break
+ * Some tips:
+    1. When you're working in a Pomodoro, if there is any distraction, record an -, note down the distraction to do it later
+    2. When Pomodoro is up, stop doing immediately.
+    3. During break time, don't think or discuss about the tasks
+More info: http://pomodorotechnique.com
+
 #Features:
 * Start a Pomodoro (25 minutes)
 * Desktop notifications (permission required) when a pomodoro/break is up
