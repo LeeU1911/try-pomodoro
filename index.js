@@ -9,7 +9,7 @@ app.set('view engine', 'jade');
 app.use(express.static('static'));
 
 var title = "Pomodoro app"
-var helloMessage = "Hello!\nWelcome to Pomodoro app!";
+var helloMessage = "Hey, there! Welcome to Pomodoro app!";
 
 app.get('/', function(req, res){
   res.render('index', {title: title, message: helloMessage})

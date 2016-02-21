@@ -4,13 +4,15 @@ html
     link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css')
     link(rel='stylesheet' href='../css/milligram.min.css')
+    link(rel='stylesheet' href='../css/pomodoro.css')
   body
     .container
-      h1.row= message
       .row
-        button.column-50(name='start' onclick='startTheDay()') Start your day!
+        h1= message
+      .row
+        button.button-blue.column-50(name='start' onclick='startTheDay()') Start your day!
       .row
         h2#timer 25:00
       .row
-        button.button-outline(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
+        button.button-blue.button-outline(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
   script(src="../js/pomodoro.js")

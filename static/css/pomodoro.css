@@ -1,0 +1,26 @@
+/* Extending The Inheritances */
+
+/* Applying color variation */
+.button-blue {
+  background-color: #00B2EE;
+  border-color: #00B2EE;
+}
+.button-blue:hover, .button-blue:focus {
+  background-color: #009ACD;
+  border-color: #009ACD;
+}
+
+.button-blue.button-outline {
+  color: #00B2EE;
+}
+.button-blue.button-outline:hover, .button-blue.button-outline:focus {
+  color: #009ACD;
+  border-color: #009ACD;
+}
+.button-blue.button-clear {
+  color: #00B2EE;
+}
+
+#timer{
+  font-size: 8.0rem;
+}
