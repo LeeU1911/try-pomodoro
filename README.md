@@ -34,15 +34,15 @@ More info: http://pomodorotechnique.com
 * Record number of pomodoros and breaks
 
 #Coming soon:
+* Start new Pomodoro/break only when user does so. Do not start automatically.
+* Reset timer for Pomodoro/break.
 * Confirmation if page is refresh or pomodoro is paused
 * Record interruptions when pausing/resuming pomodoro
 * Audio notifications
-* Reset timer
 * Task lists
 * Social networks account login
 * Save data per user
 * Dismiss notification after 30 seconds
-* Start button in notification box - consider not start pomodoro or break automatically
 * Share with friends and like on facebook
 * Add google analytics
 
