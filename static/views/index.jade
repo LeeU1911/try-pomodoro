@@ -11,11 +11,17 @@ html
       .row
         h1= message
       .row
-        button.button-blue.column-50(name='start' onclick='startTheDay()') Start your Pomorodo!
-      .row
-        h2#timer 25:00
-      .row
-        button.button-blue.button-outline(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
-      .row
-        h4#pomodoro-done Pomodoro(s):
+        .column
+          button.button-blue(name='start' onclick='startTheDay()') Start your Pomorodo!
+          button.button-blue.button-outline(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
+          #timer 25:00
+          h4#pomodoro-done Pomodoro(s):
+        .column
+          span <strong>How it works?</strong> <br>1. At the beginning of the day, list out your tasks in priority from high to low
+              | <br>2. Work on tasks (from the top) for a Pomodoro (25 minutes) without distractions (calls, messages, gossip, etc)
+              | <br>3. When 25 minutes is up, a Pomodoro is recorded (as an X)
+              | <br>4. Take a 5-minute short-break, then continue with another Pomodoro
+              | <br>5. Every 4 Pomodoros, take a 15-minute long-break
+              | <br><a href="https://github.com/LeeU1911/web-pomodoro" target="_blank">More info can be found here</a>
+
   script(src="../js/pomodoro.min.js")

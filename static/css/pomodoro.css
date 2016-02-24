@@ -4,6 +4,7 @@
 .button-blue {
   background-color: #00B2EE;
   border-color: #00B2EE;
+  margin-right: 1rem;
 }
 .button-blue:hover, .button-blue:focus {
   background-color: #009ACD;
@@ -22,5 +23,5 @@
 }
 
 #timer{
-  font-size: 8.0rem;
+  font-size: 9.0rem;
 }
