@@ -2,6 +2,7 @@ var minute = 24;
 var second = 60;
 var interval = undefined;
 var isPause = false;
+var isReset = false;
 var pomodoroCount = 0;
 var breakCount = 0;
 var pomodoroDoneEvent = new Event('pomodoroDone');
@@ -45,8 +46,12 @@ function initLongBreak(){
   // initTimer(0, 7);
 }
 function startPomodoro(){
+  if(isReset){
+    clearInterval(interval);
+  }else{
+    changeMainButtonText("Reset");
+  }
   initPomodoro();
-  changeMainButtonText("Reset");
   var message = "1 Pomodoro is done! Now take a 5-minute short-break!";
   if(pomodoroCount > 0 && pomodoroCount % 3 == 0){
     message = "4 Pomodoro is done! Now take a 15-minute long-break!";
@@ -139,4 +144,5 @@ function changePauseButtonText(text){
 
 function changeMainButtonText(text){
   document.getElementById('mainButton').innerHTML = text;
+  isReset = true;
 }
