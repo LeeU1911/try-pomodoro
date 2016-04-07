@@ -32,10 +32,10 @@ More info: http://pomodorotechnique.com
 * Timer in title of page
 * Modern UI
 * Record number of pomodoros and breaks
+* Reset timer for Pomodoro/break.
 
 #Coming soon:
 * Start new Pomodoro/break only when user does so. Do not start automatically.
-* Reset timer for Pomodoro/break.
 * Confirmation if page is refresh or pomodoro is paused
 * Record interruptions when pausing/resuming pomodoro
 * Audio notifications
