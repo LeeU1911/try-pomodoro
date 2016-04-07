@@ -13,7 +13,7 @@ html
         h1= message
       .row
         .column
-          button.button-blue(name='start' onclick='startTheDay()') Start your Pomorodo!
+          button.button-blue(id='mainButton' name='start' onclick='startTheDay()') Start your Pomorodo!
           button.button-blue.button-outline(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
           #timer 25:00
           h4#pomodoro-done Pomodoro(s):
