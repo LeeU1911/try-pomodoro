@@ -48,8 +48,7 @@ function initLongBreak(){
 function startPomodoro(){
   if(isReset){
     clearInterval(interval);
-	initPomodoro();
-	updateTimer(minute, second, types.POMODORO);
+	updateTimer(25, 00, types.POMODORO);
   }else{
     changeMainButtonText("Reset");
   }
