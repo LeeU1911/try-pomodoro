@@ -35,11 +35,11 @@ More info: http://pomodorotechnique.com
 * Reset timer for Pomodoro/break.
 
 #Coming soon:
-* Start new Pomodoro/break only when user does so. Do not start automatically.
-* Confirmation if page is refresh or pomodoro is paused
-* Record interruptions when pausing/resuming pomodoro
+* Option to start new Pomodoro/break only when user does so. Do not start automatically.
 * Audio notifications
 * Task lists
+* Confirmation if page is refresh or pomodoro is paused
+* Record interruptions when pausing/resuming pomodoro
 * Social networks account login
 * Save data per user
 * Dismiss notification after 30 seconds
