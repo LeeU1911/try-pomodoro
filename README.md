@@ -37,6 +37,7 @@ More info: http://pomodorotechnique.com
 #Coming soon:
 * Option to start new Pomodoro/break only when user does so. Do not start automatically.
 * Audio notifications
+* Integrate with music from sites like http://www.rainymood.com/ to boost productivity. More here: http://www.webdistortion.com/2015/04/14/focus-playlists-for-coding/
 * Task lists
 * Confirmation if page is refresh or pomodoro is paused
 * Record interruptions when pausing/resuming pomodoro
