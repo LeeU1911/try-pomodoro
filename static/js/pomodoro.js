@@ -107,6 +107,7 @@ function doneNInvokeNextStep(message, nextStep){
 function displayNotification(message){
   if (!("Notification" in window)) {
     alert(message);
+	bing();
   } else if (Notification.permission === "granted") {
     var notification = new Notification(message);
   } else if (Notification.permission !== 'denied') {
@@ -117,6 +118,7 @@ function displayNotification(message){
     });
   } else {
     alert(message);
+	bing();
   }
 }
 
