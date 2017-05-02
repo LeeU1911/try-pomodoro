@@ -147,3 +147,8 @@ function changeMainButtonText(text){
   document.getElementById('mainButton').innerHTML = text;
   isReset = true;
 }
+
+function bing(){
+var audio = new Audio('../audio/alarm.mp3');
+audio.play();
+}
