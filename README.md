@@ -48,4 +48,4 @@ More info: http://pomodorotechnique.com
 * Add google analytics
 
 # Feedback
-Feedback and bug reports are very welcomed to be created under Github issue tracker or sent to letanvu1911@gmail.com
+Feedback and bug reports are very welcomed to be created under Github issue tracker or sent to imleeu@gmail.com
