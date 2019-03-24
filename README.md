@@ -23,7 +23,7 @@ It has below steps:
 
 More info: http://pomodorotechnique.com
 
-#Features:
+# Features:
 * Start a Pomodoro (25 minutes)
 * Desktop notifications (permission required) when a pomodoro/break is up
 * Short-break (5 minutes) is automatically triggered after a pomodoro
@@ -34,7 +34,7 @@ More info: http://pomodorotechnique.com
 * Record number of pomodoros and breaks
 * Reset timer for Pomodoro/break.
 
-#Coming soon:
+# Coming soon:
 * Option to start new Pomodoro/break only when user does so. Do not start automatically.
 * Audio notifications
 * Integrate with music from sites like http://www.rainymood.com/ to boost productivity. More here: http://www.webdistortion.com/2015/04/14/focus-playlists-for-coding/
@@ -47,5 +47,5 @@ More info: http://pomodorotechnique.com
 * Share with friends and like on facebook
 * Add google analytics
 
-#Feedback
+# Feedback
 Feedback and bug reports are very welcomed to be created under Github issue tracker or sent to letanvu1911@gmail.com
