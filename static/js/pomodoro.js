@@ -12,15 +12,32 @@ const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
 var timer = document.getElementById('timer');
 var numOfPomodoro = document.getElementById('pomodoro-done');
+const updatePomodoroCountListener = function(e){
+  updatePomodoroCount();
+};
+const breakDoneListener = function(e){
+  breakCount++;
+};
+
+timer.addEventListener('pomodoroDone', updatePomodoroCountListener);
+timer.addEventListener('breakDone', breakDoneListener);
 
 function startTheDay(){
-  timer.addEventListener('pomodoroDone', function(e){
-    updatePomodoroCount();
-  }, false);
-  timer.addEventListener('breakDone', function(e){
-    breakCount++;
-  }, false);
-  startPomodoro();
+  if(isReset){
+    clearInterval(interval);
+    updateTimer(25, 00, types.POMODORO);
+    changeMainButtonText("Start your Pomorodo!");
+    isReset = false;
+    //When the user resets we pause the timer
+    isPause = true;
+  }
+  else{
+    changeMainButtonText("Reset");
+    startPomodoro();
+    isPause = false;
+  }
+  updatePauseButton();
+
 }
 
 function updatePomodoroCount(){
@@ -46,12 +63,6 @@ function initLongBreak(){
   // initTimer(0, 7);
 }
 function startPomodoro(){
-  if(isReset){
-    clearInterval(interval);
-	updateTimer(25, 00, types.POMODORO);
-  }else{
-    changeMainButtonText("Reset");
-  }
   initPomodoro();
   var message = "1 Pomodoro is done! Now take a 5-minute short-break!";
   if(pomodoroCount > 0 && pomodoroCount % 3 == 0){
@@ -134,6 +145,10 @@ function startBreak(){
 
 function pauseTimer(){
   isPause = !isPause;
+  updatePauseButton();
+}
+
+function updatePauseButton(){
   if(isPause){
     changePauseButtonText('Resume');
   }else{
@@ -151,6 +166,6 @@ function changeMainButtonText(text){
 }
 
 function bing(){
-var audio = new Audio('../../alarm.mp3');
-audio.play();
+  var audio = new Audio('../../alarm.mp3');
+  audio.play();
 }
