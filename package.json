@@ -4,6 +4,7 @@
   "description": "Website that is used to serve Pomodoro technique",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "postinstall": "grunt uglify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
