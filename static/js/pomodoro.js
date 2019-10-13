@@ -15,6 +15,7 @@ var pauseButton = document.getElementById('pauseButton');
 var mainButton = document.getElementById('mainButton');
 var timer = document.getElementById('timer');
 var numOfPomodoro = document.getElementById('pomodoro-done');
+var title = document.querySelector("title");
 
 function startTheDay(){
   timer.addEventListener('pomodoroDone', updatePomodoroCount.bind(this), false);
@@ -51,7 +52,7 @@ function initLongBreak(){
 function startPomodoro(){
   if(isReset){
     clearInterval(interval);
-	updateTimer(25, 00, types.POMODORO);
+	  updateTimer(25, 00, types.POMODORO);
   }else{
     changeMainButtonText("Reset");
   }
@@ -85,7 +86,6 @@ function startTimer(type, doneNInvokeNextStep, message, nextStep, event){
 
 function updateTimer(minute, second, type){
   var time =  checkTime(minute) + ":"+ checkTime(second);
-  var title = document.getElementsByTagName("title")[0];
   timer.innerHTML = time;
   if(type == types.POMODORO){
     title.innerHTML = "Pomodoro (" + time + ")";
@@ -108,11 +108,11 @@ function displayNotification(message){
     alert(message);
 	  bing();
   } else if (Notification.permission === "granted") {
-    var notification = new Notification(message);
+    new Notification(message);
   } else if (Notification.permission !== 'denied') {
     Notification.requestPermission(function (permission) {
       if (permission === "granted") {
-        var notification = new Notification(message);
+        new Notification(message);
       }
     });
   } else {
