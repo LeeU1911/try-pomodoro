@@ -10,17 +10,20 @@ var breakDoneEvent = new Event('breakDone');
 
 const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
+// UI Elements
+var pauseButton = document.getElementById('pauseButton');
+var mainButton = document.getElementById('mainButton');
 var timer = document.getElementById('timer');
 var numOfPomodoro = document.getElementById('pomodoro-done');
 
 function startTheDay(){
-  timer.addEventListener('pomodoroDone', function(e){
-    updatePomodoroCount();
-  }, false);
-  timer.addEventListener('breakDone', function(e){
-    breakCount++;
-  }, false);
+  timer.addEventListener('pomodoroDone', updatePomodoroCount.bind(this), false);
+  timer.addEventListener('breakDone', updateBreakCount.bind(this), false);
   startPomodoro();
+}
+
+function updateBreakCount(){
+  breakCount++;
 }
 
 function updatePomodoroCount(){
@@ -81,8 +84,7 @@ function startTimer(type, doneNInvokeNextStep, message, nextStep, event){
 }
 
 function updateTimer(minute, second, type){
-  var time =  checkTime(minute) + ":"
-    + checkTime(second);
+  var time =  checkTime(minute) + ":"+ checkTime(second);
   var title = document.getElementsByTagName("title")[0];
   timer.innerHTML = time;
   if(type == types.POMODORO){
@@ -93,10 +95,7 @@ function updateTimer(minute, second, type){
 
 }
 function checkTime(i){
-  if(i < 10) {
-    i = "0" + i;
-  }
-  return i;
+  return i < 10 ? "0" + i : i;
 }
 function doneNInvokeNextStep(message, nextStep){
   displayNotification(message);
@@ -107,7 +106,7 @@ function doneNInvokeNextStep(message, nextStep){
 function displayNotification(message){
   if (!("Notification" in window)) {
     alert(message);
-	bing();
+	  bing();
   } else if (Notification.permission === "granted") {
     var notification = new Notification(message);
   } else if (Notification.permission !== 'denied') {
@@ -118,7 +117,7 @@ function displayNotification(message){
     });
   } else {
     alert(message);
-	bing();
+	  bing();
   }
 }
 
@@ -142,15 +141,15 @@ function pauseTimer(){
 }
 
 function changePauseButtonText(text){
-  document.getElementById('pauseButton').innerHTML = text;
+  pauseButton.innerHTML = text;
 }
 
 function changeMainButtonText(text){
-  document.getElementById('mainButton').innerHTML = text;
+  mainButton.innerHTML = text;
   isReset = true;
 }
 
 function bing(){
-var audio = new Audio('../../alarm.mp3');
-audio.play();
+  var audio = new Audio('../../alarm.mp3');
+  audio.play();
 }
