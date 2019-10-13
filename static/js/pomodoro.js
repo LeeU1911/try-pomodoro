@@ -166,6 +166,6 @@ function changeMainButtonText(text){
 }
 
 function bing(){
-  var audio = new Audio('../../alarm.mp3');
+  var audio = new Audio('/audio/alarm.mp3');
   audio.play();
 }
