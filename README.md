@@ -34,6 +34,9 @@ More info: http://pomodorotechnique.com
 * Record number of pomodoros and breaks
 * Reset timer for Pomodoro/break.
 
+# Build
+Commit is automatically pushed and deployed to https://web-pomodoro.herokuapp.com/
+
 # Coming soon:
 * Option to start new Pomodoro/break only when user does so. Do not start automatically.
 * Audio notifications
