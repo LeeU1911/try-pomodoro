@@ -7,6 +7,7 @@ var pomodoroCount = 0;
 var breakCount = 0;
 var pomodoroDoneEvent = new Event('pomodoroDone');
 var breakDoneEvent = new Event('breakDone');
+var waitingUserCommand = false
 
 const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
@@ -18,6 +19,24 @@ const updatePomodoroCountListener = function(e){
 const breakDoneListener = function(e){
   breakCount++;
 };
+
+var currentDoneNInvokeNextStep;
+var currentNextStep;
+
+let mainButton = document.getElementById('mainButton')
+mainButton.addEventListener('click', nextClick)
+
+function nextClick() {
+  if (!waitingUserCommand) {
+    startTheDay()
+  } else { 
+    mainButton.innerHTML = 'Reset'
+    isPause = false
+    currentWaitingUserCommand = false
+    currentDoneNInvokeNextStep(currentNextStep);
+    return;
+  }
+}
 
 timer.addEventListener('pomodoroDone', updatePomodoroCountListener);
 timer.addEventListener('breakDone', breakDoneListener);
@@ -50,7 +69,7 @@ function initTimer(min, sec){
 }
 function initPomodoro(){
   initTimer(24, 60);
-  // initTimer(0, 5);
+  // initTimer(0, 10);
 }
 
 function initShortBreak(){
@@ -60,7 +79,7 @@ function initShortBreak(){
 
 function initLongBreak(){
   initTimer(14, 60);
-  // initTimer(0, 7);
+  // initTimer(0, 5);
 }
 function startPomodoro(){
   initPomodoro();
@@ -79,16 +98,23 @@ function startTimer(type, doneNInvokeNextStep, message, nextStep, event){
 
   if(second == 0){
     if(minute == 0){
-      if(event){
-        timer.dispatchEvent(event);
-      }
-      doneNInvokeNextStep(message, nextStep);
+      waitUserCommand(doneNInvokeNextStep, message, nextStep, event)
       return;
     }else{
       minute--;
     }
     second = 59;
   }
+}
+
+function waitUserCommand(doneNInvokeNextStep, message, nextStep, event) {
+  timer.dispatchEvent(event);
+  displayNotification(message);
+  isPause = true
+  waitingUserCommand = true
+  mainButton.innerHTML = 'Start next step'
+  currentDoneNInvokeNextStep = doneNInvokeNextStep
+  currentNextStep = nextStep
 }
 
 function updateTimer(minute, second, type){
@@ -109,8 +135,7 @@ function checkTime(i){
   }
   return i;
 }
-function doneNInvokeNextStep(message, nextStep){
-  displayNotification(message);
+function doneNInvokeNextStep(nextStep){
   clearInterval(interval);
   nextStep();
 }
