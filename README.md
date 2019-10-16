@@ -32,7 +32,9 @@ More info: http://pomodorotechnique.com
 * Timer in title of page
 * Modern UI
 * Record number of pomodoros and breaks
-* Reset timer for Pomodoro/break.
+* Reset timer for Pomodoro/break
+* Start pomodoro/break on demand
+* Audio notification when a pomodoro/break is done
 
 # Build
 Commit is automatically pushed and deployed to https://we-pomodoro.herokuapp.com/
