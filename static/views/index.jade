@@ -23,4 +23,13 @@ html
               | <br>4. Take a 5-minute short-break, then continue with another Pomodoro
               | <br>5. Every 4 Pomodoros, take a 15-minute long-break
               | <br><a href="https://github.com/LeeU1911/web-pomodoro" target="_blank">More info and feedback here</a>
+      hr
+      div.todo-div
+        div.todo-header
+          h3 To do list
+          input(id='newTask' placeholder='New Task')
+          input(type='submit' id='addTaskButton' onclick='addTask()' value='Add')
+        ul(id='todoUL')
+          li(class="checked") Open the Pomodoro app
   script(src="../js/pomodoro.min.js")
+  script(src="../js/todolist.js")
