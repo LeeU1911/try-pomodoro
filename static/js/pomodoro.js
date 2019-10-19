@@ -10,17 +10,30 @@ var breakDoneEvent = new Event('breakDone');
 
 const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
+const interruptUtil = {
+  count: 0,
+  increment: function () {
+    ++this.count;
+  },
+  reset: function () {
+    this.count = 0
+  }
+};
+
 // Holds reference to all DOM nodes we need
 const DOM = {
   timer: document.getElementById('timer'),
   pauseButton: document.getElementById('pauseButton'),
   mainButton: document.getElementById('mainButton'),
   numOfPomodoro: document.getElementById('pomodoro-done'),
+  interruptRow: document.getElementById('interrupts'),
+  interruptCounter: document.getElementById('interruption-count')
 };
 
 const updatePomodoroCountListener = function(e){
   updatePomodoroCount();
 };
+
 const breakDoneListener = function(e){
   breakCount++;
 };
@@ -37,6 +50,7 @@ function startTheDay(){
     isReset = false;
     //When the user resets we pause the timer
     isPause = true;
+    resetInterruptions();
   }
   else{
     DOM.pauseButton.style.display = 'initial';
@@ -160,6 +174,7 @@ function pauseTimer(){
 function updatePauseButton(){
   if(isPause){
     changePauseButtonText('Resume');
+    updateInterruptionCounts();
   }else{
     changePauseButtonText('Pause');
   }
@@ -177,4 +192,18 @@ function changeMainButtonText(text){
 function bing(){
   var audio = new Audio('/audio/alarm.mp3');
   audio.play();
+}
+
+function resetInterruptions() {
+  interruptUtil.reset();
+  DOM.interruptRow.style.display = 'none';
+  DOM.interruptCounter.innerHTML = interruptUtil.count;
+}
+
+function updateInterruptionCounts() {
+  if(isReset){
+    interruptUtil.increment();
+    DOM.interruptCounter.innerHTML = interruptUtil.count;
+    DOM.interruptRow.style.display = 'initial';
+  }
 }

@@ -23,6 +23,11 @@
   display: none;
 }
 
+#interrupts {
+  display: none;
+  margin-bottom: 10px;
+}
+
 .button-blue.button-clear {
   color: #00B2EE;
 }
