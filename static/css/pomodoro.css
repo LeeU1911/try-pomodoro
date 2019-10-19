@@ -18,6 +18,11 @@
   color: #009ACD;
   border-color: #009ACD;
 }
+
+.button-blue.button-outline#pauseButton {
+  display: none;
+}
+
 .button-blue.button-clear {
   color: #00B2EE;
 }
