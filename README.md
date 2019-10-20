@@ -4,7 +4,7 @@ Web Pomodoro is a web application that is used to serve Pomodoro technique
 Press Start button will trigger the timer which will send a desktop alert after 25 minutes.
 5 minutes break is automatically triggered after that.
 
-App is live here: https://web-pomodoro.herokuapp.com/
+App is live here: https://we-pomodoro.herokuapp.com/
 
 What is Pomodoro technique? 
 In short, it is a technique to boost your productivity in daily work. 
@@ -32,14 +32,14 @@ More info: http://pomodorotechnique.com
 * Timer in title of page
 * Modern UI
 * Record number of pomodoros and breaks
-* Reset timer for Pomodoro/break.
+* Reset timer for Pomodoro/break
+* Start pomodoro/break on demand
+* Audio notification when a pomodoro/break is done
 
 # Build
-Commit is automatically pushed and deployed to https://web-pomodoro.herokuapp.com/
+Commit is automatically pushed and deployed to https://we-pomodoro.herokuapp.com/
 
 # Coming soon:
-* Option to start new Pomodoro/break only when user does so. Do not start automatically.
-* Audio notifications
 * Integrate with music from sites like http://www.rainymood.com/ to boost productivity. More here: http://www.webdistortion.com/2015/04/14/focus-playlists-for-coding/
 * Task lists
 * Confirmation if page is refresh or pomodoro is paused

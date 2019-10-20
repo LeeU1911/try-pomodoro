@@ -8,7 +8,7 @@ var breakCount = 0;
 var pomodoroDoneEvent = new Event('pomodoroDone');
 var breakDoneEvent = new Event('breakDone');
 
-const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
+var types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
 // UI Elements
 var pauseButton = document.getElementById('pauseButton');
@@ -20,7 +20,21 @@ var title = document.querySelector("title");
 function startTheDay(){
   timer.addEventListener('pomodoroDone', updatePomodoroCount.bind(this), false);
   timer.addEventListener('breakDone', updateBreakCount.bind(this), false);
-  startPomodoro();
+
+  if(isReset){
+    clearInterval(interval);
+    updateTimer(25, 00, types.POMODORO);
+    changeMainButtonText("Start your Pomorodo!");
+    isReset = false;
+    //When the user resets we pause the timer
+    isPause = true;
+  }
+  else{
+    changeMainButtonText("Reset");
+    startPomodoro();
+    isPause = false;
+  }
+  updatePauseButton();
 }
 
 function updateBreakCount(){
@@ -50,12 +64,6 @@ function initLongBreak(){
   // initTimer(0, 7);
 }
 function startPomodoro(){
-  if(isReset){
-    clearInterval(interval);
-	  updateTimer(25, 00, types.POMODORO);
-  }else{
-    changeMainButtonText("Reset");
-  }
   initPomodoro();
   var message = "1 Pomodoro is done! Now take a 5-minute short-break!";
   if(pomodoroCount > 0 && pomodoroCount % 3 == 0){
@@ -131,8 +139,7 @@ function startBreak(){
   interval = setInterval(startTimer, 1000, types.BREAK, doneNInvokeNextStep, message, startPomodoro, breakDoneEvent);
 }
 
-function pauseTimer(){
-  isPause = !isPause;
+function updatePauseButton(){
   if(isPause){
     changePauseButtonText('Resume');
   }else{
@@ -144,12 +151,17 @@ function changePauseButtonText(text){
   pauseButton.innerHTML = text;
 }
 
+function pauseTimer(){
+  isPause = !isPause;
+  updatePauseButton();
+}
+
 function changeMainButtonText(text){
   mainButton.innerHTML = text;
   isReset = true;
 }
 
 function bing(){
-  var audio = new Audio('../../alarm.mp3');
+  var audio = new Audio('/audio/alarm.mp3');
   audio.play();
 }
