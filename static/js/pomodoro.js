@@ -6,7 +6,25 @@ var isReset = false;
 var pomodoroCount = 0;
 var breakCount = 0;
 var pomodoroDoneEvent = new Event('pomodoroDone');
-var breakDoneEvent = new Event('breakDone');
+var breakDoneEvent = new Event('breakDone'); 
+var musicActive = false;
+var musicPlayer = new Audio();
+musicPlayer.loop = true;
+
+const  musicList = [
+  {
+    name: 'Gentle rain sounds',
+    src: '/audio/Gentle-rain-sounds.mp3'
+  },
+  {
+    name: 'Boat engine and waves',
+    src: '/audio/Boat-engine-and-waves.mp3'
+  }
+];
+var musicSelector = document.getElementById('player-selector');
+musicList.forEach(music => {
+  musicSelector.add(new Option(music.name, music.src));
+});
 
 const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
@@ -30,11 +48,13 @@ function startTheDay(){
     isReset = false;
     //When the user resets we pause the timer
     isPause = true;
+    musicPlayer.pause();
   }
   else{
     changeMainButtonText("Reset");
     startPomodoro();
     isPause = false;
+    playMusic();
   }
   updatePauseButton();
 
@@ -145,6 +165,11 @@ function startBreak(){
 
 function pauseTimer(){
   isPause = !isPause;
+  if (!isPause && musicActive) {
+    musicPlayer.play();
+  } else {
+    musicPlayer.pause();
+  }
   updatePauseButton();
 }
 
@@ -168,4 +193,40 @@ function changeMainButtonText(text){
 function bing(){
   var audio = new Audio('/audio/alarm.mp3');
   audio.play();
+}
+
+function toggleMusic() {
+  musicActive = !musicActive;
+  const player = document.getElementById('player');
+
+  if (musicActive) {
+    player.classList.add('on');
+    if (!isPause && interval) {
+      playMusic();
+    } else {
+      musicPlayer.pause();
+    }
+  } else {
+    player.classList.remove('on');
+    musicPlayer.pause();
+  }
+  
+}
+
+function playMusic() {
+  if (!musicActive) {
+    return;
+  }
+  const currentMusic = document.getElementById('player-selector').value;
+  musicPlayer.src = currentMusic;
+  musicPlayer.play();
+}
+
+function setMusic() {
+  const currentMusic = document.getElementById('player-selector').value;
+  musicPlayer.src = currentMusic;
+
+  if (!isPause && musicActive && interval) {
+    musicPlayer.play();
+  }
 }
