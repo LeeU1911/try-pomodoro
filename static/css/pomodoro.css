@@ -1,6 +1,23 @@
 /* Extending The Inheritances */
 
 /* Applying color variation */
+.row.column.div-message {
+  flex: 1 0 0;
+  display: flex;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+.message {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  font-weight: 1000;
+  font-size: 1.8rem;
+}
+.row.column.column2 {
+  flex: 2;
+}
 .button-blue {
   background-color: #00B2EE;
   border-color: #00B2EE;
@@ -21,7 +38,19 @@
 .button-blue.button-clear {
   color: #00B2EE;
 }
-
+h4 {
+  font-weight: 500;
+  letter-spacing: 4;
+}
+#pomodoro-done {
+  color: #009ACD;
+  font-weight: 1000;
+  text-align: center;
+  font-size: 3rem;
+}
 #timer{
   font-size: 9.0rem;
+}
+.hidden {
+  display: none;
 }
