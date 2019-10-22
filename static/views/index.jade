@@ -4,6 +4,7 @@ html
     title= title
     link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css')
+    link(rel='stylesheet' href='../css/interruption.css')
     link(rel='stylesheet' href='../css/milligram.min.css')
     link(rel='stylesheet' href='../css/pomodoro.css')
   body
@@ -18,6 +19,9 @@ html
           h4
             | Pomodoro(s):
             span#pomodoro-done
+            .dropdown
+              button.dropbtn #[span Interruptions: #[span.nbInterruptions 0] &nbsp total: #[span.timeInterrupted 0m:0s] ]  #[span 🔽]
+              .dropdown-content.dropdown-content-hidden
         .row.column.div-message
           .hidden.message HI
         .row.column.column2
@@ -31,3 +35,4 @@ html
   script(src="../js/controls.js")
   script(src="../js/break.js")
   script(src="../js/timer.js")
+  script(src="../js/interruptions.js")

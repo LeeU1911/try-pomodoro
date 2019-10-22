@@ -1,5 +1,16 @@
 var timer = document.getElementById('timer');
+var title = document.getElementsByTagName("title")[0];
 
+function getPrettyTimeBase(timeStamp, base) {
+  return `${parseInt(timeStamp/base[0])}m:${parseInt((timeStamp%base[0])/base[1])}s`
+}
+function getPrettyTime(timeStamp, unit)
+{
+  if(unit==="ms")
+  {
+    return getPrettyTimeBase(timeStamp, [60000, 1000]);
+  }
+}
 function initTimer(min, sec){
   minute = min;
   second = sec;
@@ -29,7 +40,6 @@ function startTimer(type, doneNInvokeNextStep, message, nextStep, event){
 function updateTimer(minute, second, type){
   var time =  checkTime(minute) + ":"
     + checkTime(second);
-  var title = document.getElementsByTagName("title")[0];
   timer.innerHTML = time;
   if(type == types.POMODORO){
     title.innerHTML = "Pomodoro (" + time + ")";

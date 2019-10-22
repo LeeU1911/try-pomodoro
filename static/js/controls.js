@@ -1,5 +1,7 @@
 var isPause = false;
 var isReset = false;
+var startPause = 0;
+var endPause = 0;
 
 function startTheDay(){
   if(isReset){
@@ -27,8 +29,12 @@ function pauseTimer(){
 
 function updatePauseButton(){
   if(isPause){
+    startPause = performance.now();
     changePauseButtonText('Resume');
   }else{
+    endPause = performance.now()
+    timeStampDuration = endPause - startPause;
+    runInterruptions(timeStampDuration);
     changePauseButtonText('Pause');
   }
 }
