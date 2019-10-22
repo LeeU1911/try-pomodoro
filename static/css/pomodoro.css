@@ -1,4 +1,7 @@
 /* Extending The Inheritances */
+* {
+  box-sizing: border-box;
+}
 
 /* Applying color variation */
 .row.column.div-message {
@@ -6,7 +9,7 @@
   display: flex;
   padding: 0;
   justify-content: flex-start;
-  align-items: center;
+  padding-top: 100px;
 }
 .message {
   width: 200px;
@@ -16,7 +19,8 @@
   font-size: 1.8rem;
 }
 .row.column.column2 {
-  flex: 2;
+  flex: 10;
+  padding-right: 0;
 }
 .button-blue {
   background-color: #00B2EE;

@@ -19,8 +19,8 @@ function updatePomodoroCount(){
 }
 
 function initPomodoro(){
-  initTimer(24, 60);
-  // initTimer(0, 4);
+  // initTimer(24, 60);
+  initTimer(0, 4);
 }
 
 function startPomodoro(){

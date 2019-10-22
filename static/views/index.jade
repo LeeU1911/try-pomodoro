@@ -7,6 +7,7 @@ html
     link(rel='stylesheet' href='../css/interruption.css')
     link(rel='stylesheet' href='../css/milligram.min.css')
     link(rel='stylesheet' href='../css/pomodoro.css')
+    link(rel='stylesheet' href='../css/todoList.css')
   body
     .container
       .row
@@ -31,8 +32,16 @@ html
               | <br>4. Take a 5-minute short-break, then continue with another Pomodoro
               | <br>5. Every 4 Pomodoros, take a 15-minute long-break
               | <br><a href="https://github.com/LeeU1911/web-pomodoro" target="_blank">More info and feedback here</a>
+
+          #myDIV.header
+            h4 My To Do List
+            .container-controls
+              input(type="text" id="myInput" placeholder="Title...")
+              span(onclick="newElement()" class="addBtn") ADD
+          ul#myUL
   script(src="../js/pomodoro.js")
   script(src="../js/controls.js")
   script(src="../js/break.js")
   script(src="../js/timer.js")
   script(src="../js/interruptions.js")
+  script(src="../js/todoList.js")

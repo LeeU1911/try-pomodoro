@@ -22,7 +22,7 @@ function startBreak(){
 
 function initShortBreak(){
   initTimer(4, 60);
-  // initTimer(0, 2);
+  initTimer(0, 2);
 }
 
 function initLongBreak(){
