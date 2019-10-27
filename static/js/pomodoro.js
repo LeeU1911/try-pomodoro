@@ -47,16 +47,17 @@ function displayNotification(message){
   if (!("Notification" in window)) {
 	  bing();
   } else if (Notification.permission === "granted") {
-    var notification = new Notification(message);
+    new Notification(message);
   } else if (Notification.permission !== 'denied') {
     Notification.requestPermission(function (permission) {
       if (permission === "granted") {
-        var notification = new Notification(message);
+        new Notification(message);
       }
     });
   } else {
 	  bing();
   }
+
 }
 
 function bing(){
