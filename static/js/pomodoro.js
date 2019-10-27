@@ -155,7 +155,6 @@ function displayNotification(message){
 }
 
 function startBreak(){
-  alert('I got called');
   if(pomodoroCount > 0 && pomodoroCount % 4 === 0){
     initLongBreak();
   }else{
