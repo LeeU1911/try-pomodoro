@@ -8,7 +8,7 @@ var breakCount = 0;
 var pomodoroDoneEvent = new Event('pomodoroDone');
 var breakDoneEvent = new Event('breakDone');
 
-const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
+var types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
 const interruptUtil = {
   count: 0,
@@ -27,7 +27,8 @@ const DOM = {
   mainButton: document.getElementById('mainButton'),
   numOfPomodoro: document.getElementById('pomodoro-done'),
   interruptRow: document.getElementById('interrupts'),
-  interruptCounter: document.getElementById('interruption-count')
+  interruptCounter: document.getElementById('interruption-count'),
+  title: document.querySelector("title"),
 };
 
 const updatePomodoroCountListener = function(e){
@@ -38,10 +39,10 @@ const breakDoneListener = function(e){
   breakCount++;
 };
 
-DOM.timer.addEventListener('pomodoroDone', updatePomodoroCountListener);
-DOM.timer.addEventListener('breakDone', breakDoneListener);
-
 function startTheDay(){
+  DOM.timer.addEventListener('pomodoroDone', updatePomodoroCount.bind(this), false);
+  DOM.timer.addEventListener('breakDone', updateBreakCount.bind(this), false);
+
   if(isReset){
     clearInterval(interval);
     DOM.pauseButton.style.display = 'none';
@@ -58,8 +59,11 @@ function startTheDay(){
     startPomodoro();
     isPause = false;
   }
-
   updatePauseButton();
+}
+
+function updateBreakCount(){
+  breakCount++;
 }
 
 function updatePomodoroCount(){
@@ -114,22 +118,17 @@ function startTimer(type, doneNInvokeNextStep, message, nextStep, event){
 }
 
 function updateTimer(minute, second, type){
-  var time =  checkTime(minute) + ":"
-    + checkTime(second);
-  var title = document.getElementsByTagName("title")[0];
+  var time =  checkTime(minute) + ":"+ checkTime(second);
   DOM.timer.innerHTML = time;
   if(type === types.POMODORO){
-    title.innerHTML = "Pomodoro (" + time + ")";
+    DOM.title.innerHTML = "Pomodoro (" + time + ")";
   }else if(type === types.BREAK){
-    title.innerHTML = "Break (" + time + ")";
+    DOM.title.innerHTML = "Break (" + time + ")";
   }
 
 }
 function checkTime(i){
-  if(i < 10) {
-    i = "0" + i;
-  }
-  return i;
+  return i < 10 ? "0" + i : i;
 }
 function doneNInvokeNextStep(message, nextStep){
   displayNotification(message);
@@ -140,18 +139,18 @@ function doneNInvokeNextStep(message, nextStep){
 function displayNotification(message){
   if (!("Notification" in window)) {
     alert(message);
-	bing();
+	  bing();
   } else if (Notification.permission === "granted") {
-    var notification = new Notification(message);
+    new Notification(message);
   } else if (Notification.permission !== 'denied') {
     Notification.requestPermission(function (permission) {
       if (permission === "granted") {
-        var notification = new Notification(message);
+        new Notification(message);
       }
     });
   } else {
     alert(message);
-	bing();
+	  bing();
   }
 }
 
@@ -166,11 +165,6 @@ function startBreak(){
   interval = setInterval(startTimer, 1000, types.BREAK, doneNInvokeNextStep, message, startPomodoro, breakDoneEvent);
 }
 
-function pauseTimer(){
-  isPause = !isPause;
-  updatePauseButton();
-}
-
 function updatePauseButton(){
   if(isPause){
     changePauseButtonText('Resume');
@@ -182,6 +176,11 @@ function updatePauseButton(){
 
 function changePauseButtonText(text){
   DOM.pauseButton.innerHTML = text;
+}
+
+function pauseTimer(){
+  isPause = !isPause;
+  updatePauseButton();
 }
 
 function changeMainButtonText(text){
