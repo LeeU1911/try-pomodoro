@@ -4,6 +4,7 @@
   "description": "Website that is used to serve Pomodoro technique",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "postinstall": "grunt uglify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,11 +29,12 @@
   "dependencies": {
     "compression": "^1.6.1",
     "express": "^4.13.4",
-    "grunt": "0.4.5",
-    "grunt-cli": "0.1.13",
     "grunt-contrib-uglify": "0.11.1",
     "jade": "^1.11.0",
     "milligram": "^1.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "grunt-cli": "0.1.13",
+    "grunt": "^0.4.5"
+  }
 }

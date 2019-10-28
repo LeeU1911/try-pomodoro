@@ -8,21 +8,19 @@ var breakCount = 0;
 var pomodoroDoneEvent = new Event('pomodoroDone');
 var breakDoneEvent = new Event('breakDone');
 
-const types = {POMODORO: 'Pomodoro', BREAK: 'break'};
+var types = {POMODORO: 'Pomodoro', BREAK: 'break'};
 
+// UI Elements
+var pauseButton = document.getElementById('pauseButton');
+var mainButton = document.getElementById('mainButton');
 var timer = document.getElementById('timer');
 var numOfPomodoro = document.getElementById('pomodoro-done');
-const updatePomodoroCountListener = function(e){
-  updatePomodoroCount();
-};
-const breakDoneListener = function(e){
-  breakCount++;
-};
-
-timer.addEventListener('pomodoroDone', updatePomodoroCountListener);
-timer.addEventListener('breakDone', breakDoneListener);
+var title = document.querySelector("title");
 
 function startTheDay(){
+  timer.addEventListener('pomodoroDone', updatePomodoroCount.bind(this), false);
+  timer.addEventListener('breakDone', updateBreakCount.bind(this), false);
+
   if(isReset){
     clearInterval(interval);
     updateTimer(25, 00, types.POMODORO);
@@ -37,7 +35,10 @@ function startTheDay(){
     isPause = false;
   }
   updatePauseButton();
+}
 
+function updateBreakCount(){
+  breakCount++;
 }
 
 function updatePomodoroCount(){
@@ -92,9 +93,7 @@ function startTimer(type, doneNInvokeNextStep, message, nextStep, event){
 }
 
 function updateTimer(minute, second, type){
-  var time =  checkTime(minute) + ":"
-    + checkTime(second);
-  var title = document.getElementsByTagName("title")[0];
+  var time =  checkTime(minute) + ":"+ checkTime(second);
   timer.innerHTML = time;
   if(type == types.POMODORO){
     title.innerHTML = "Pomodoro (" + time + ")";
@@ -104,10 +103,7 @@ function updateTimer(minute, second, type){
 
 }
 function checkTime(i){
-  if(i < 10) {
-    i = "0" + i;
-  }
-  return i;
+  return i < 10 ? "0" + i : i;
 }
 function doneNInvokeNextStep(message, nextStep){
   displayNotification(message);
@@ -118,18 +114,18 @@ function doneNInvokeNextStep(message, nextStep){
 function displayNotification(message){
   if (!("Notification" in window)) {
     alert(message);
-	bing();
+	  bing();
   } else if (Notification.permission === "granted") {
-    var notification = new Notification(message);
+    new Notification(message);
   } else if (Notification.permission !== 'denied') {
     Notification.requestPermission(function (permission) {
       if (permission === "granted") {
-        var notification = new Notification(message);
+        new Notification(message);
       }
     });
   } else {
     alert(message);
-	bing();
+	  bing();
   }
 }
 
@@ -143,11 +139,6 @@ function startBreak(){
   interval = setInterval(startTimer, 1000, types.BREAK, doneNInvokeNextStep, message, startPomodoro, breakDoneEvent);
 }
 
-function pauseTimer(){
-  isPause = !isPause;
-  updatePauseButton();
-}
-
 function updatePauseButton(){
   if(isPause){
     changePauseButtonText('Resume');
@@ -157,11 +148,16 @@ function updatePauseButton(){
 }
 
 function changePauseButtonText(text){
-  document.getElementById('pauseButton').innerHTML = text;
+  pauseButton.innerHTML = text;
+}
+
+function pauseTimer(){
+  isPause = !isPause;
+  updatePauseButton();
 }
 
 function changeMainButtonText(text){
-  document.getElementById('mainButton').innerHTML = text;
+  mainButton.innerHTML = text;
   isReset = true;
 }
 
