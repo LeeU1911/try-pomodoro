@@ -4,23 +4,44 @@ html
     title= title
     link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css')
+    link(rel='stylesheet' href='../css/interruption.css')
     link(rel='stylesheet' href='../css/milligram.min.css')
     link(rel='stylesheet' href='../css/pomodoro.css')
+    link(rel='stylesheet' href='../css/todoList.css')
   body
     .container
       .row
-        h1= message
+        h1 Hey, there! Welcome to Pomodoro app!
       .row
-        .column
+        .row.column
           button.button-blue(id='mainButton' name='start' onclick='startTheDay()') Start your Pomorodo!
-          button.button-blue.button-outline(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
+          button.button-blue.hidden.button-outline(id='pauseButton' name='pause' onclick='pauseTimer()') Pause
           #timer 25:00
-          h4#pomodoro-done Pomodoro(s):
-        .column
+          h4
+            | Pomodoro(s):
+            span#pomodoro-done
+            .dropdown
+              button.dropbtn #[span Interruptions: #[span.nbInterruptions 0] &nbsp total: #[span.timeInterrupted 0m:0s] ]  #[span 🔽]
+              .dropdown-content.dropdown-content-hidden
+        .row.column.div-message
+          .hidden.message HI
+        .row.column.column2
           span <strong>How it works?</strong> <br>1. At the beginning of the day, list out your tasks in priority from high to low
               | <br>2. Work on tasks (from the top) for a Pomodoro (25 minutes) without distractions (calls, messages, gossip, etc)
               | <br>3. When 25 minutes is up, a Pomodoro is recorded (as an X)
               | <br>4. Take a 5-minute short-break, then continue with another Pomodoro
               | <br>5. Every 4 Pomodoros, take a 15-minute long-break
               | <br><a href="https://github.com/LeeU1911/web-pomodoro" target="_blank">More info and feedback here</a>
-  script(src="../js/pomodoro.min.js")
+
+          #myDIV.header
+            h4 My To Do List
+            .container-controls
+              input(type="text" id="myInput" placeholder="Title...")
+              span(onclick="newElement()" class="addBtn") ADD
+          ul#myUL
+  script(src="../js/pomodoro.js")
+  script(src="../js/controls.js")
+  script(src="../js/break.js")
+  script(src="../js/timer.js")
+  script(src="../js/interruptions.js")
+  script(src="../js/todoList.js")
