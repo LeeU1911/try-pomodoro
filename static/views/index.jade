@@ -32,13 +32,17 @@ html
               | <br>4. Take a 5-minute short-break, then continue with another Pomodoro
               | <br>5. Every 4 Pomodoros, take a 15-minute long-break
               | <br><a href="https://github.com/LeeU1911/web-pomodoro" target="_blank">More info and feedback here</a>
-
           #myDIV.header
             h4 My To Do List
             .container-controls
               input(type="text" id="myInput" placeholder="Title...")
               span(onclick="newElement()" class="addBtn") ADD
           ul#myUL
+      #player
+      #player-switch(onclick="toggleMusic()")
+      h5.player__heading Music
+      select#player-selector(onchange="setMusic()")
+  script(src="../js/pomodoro.min.js")
   script(src="../js/pomodoro.js")
   script(src="../js/controls.js")
   script(src="../js/break.js")
