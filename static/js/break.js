@@ -11,7 +11,6 @@ timer.addEventListener('breakDone', breakDoneListener);
 function startBreak(){
   isBreak = true;
   totaltimectr = true;
-  //totaltimectr = true;
   if(pomodoroCount > 0 && pomodoroCount % 4 == 0){
     initLongBreak();
   }else{
@@ -25,10 +24,8 @@ function startBreak(){
 
 function initShortBreak(){
   initTimer(4, 60);
-  //initTimer(mymin, mysec);
 }
 
 function initLongBreak(){
   initTimer(14, 60);
-  //initTimer(0, 6);
 }
