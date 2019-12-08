@@ -34,7 +34,8 @@
     "milligram": "^1.1.0"
   },
   "devDependencies": {
+    "grunt": "^0.4.5",
     "grunt-cli": "0.1.13",
-    "grunt": "^0.4.5"
+    "grunt-contrib-uglify-es": "^3.3.0"
   }
 }

@@ -49,6 +49,7 @@ function startTheDay(){
     startPomodoro();
     isPause = false;
     playMusic();
+    countTimer();
   }
   updatePauseButton();
 
@@ -60,8 +61,8 @@ function updatePomodoroCount(){
 }
 
 function initPomodoro(){
-  initTimer(24, 60);
-  // initTimer(0, 4);
+  //initTimer(24, 60);
+  initTimer(0, 5);
 }
 
 function startPomodoro(){
@@ -130,8 +131,6 @@ function updatePauseButton(){
 
 function changePauseButtonText(text){
   document.getElementById('pauseButton').innerHTML = text;
-}
-
 }
 
 function bing(){

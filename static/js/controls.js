@@ -3,6 +3,8 @@ var isReset = false;
 var startPause = 0;
 var endPause = 0;
 
+var totaltimectr = true;
+
 function startTheDay(){
   if(isReset){
     clearInterval(interval);
@@ -16,6 +18,7 @@ function startTheDay(){
     changeMainButtonText("Reset");
     startPomodoro();
     isPause = false;
+    totaltimectr = false;
   }
   showResume();
   messageBreak.classList.add('hidden');
