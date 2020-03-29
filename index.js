@@ -14,10 +14,10 @@ app.use(express.static('static'));
 var title = "Pomodoro app"
 var helloMessage = "Hey, there! Welcome to Pomodoro app!";
 
-app.get('/', function(req, res){
-  res.render('index', {title: title, message: helloMessage})
+app.get('/', function (req, res) {
+    res.render('index', {title: title, message: helloMessage})
 })
 
-var server = app.listen(PORT, function(){
-  console.log("App is running on port %s", PORT);
+var server = app.listen(PORT, function () {
+    console.log("App is running on port %s", PORT);
 })

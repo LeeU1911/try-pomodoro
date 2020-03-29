@@ -2,27 +2,30 @@
 
 /* Applying color variation */
 .button-blue {
-  background-color: #00B2EE;
-  border-color: #00B2EE;
-  margin-right: 1rem;
+    background-color: #00B2EE;
+    border-color: #00B2EE;
+    margin-right: 1rem;
 }
+
 .button-blue:hover, .button-blue:focus {
-  background-color: #009ACD;
-  border-color: #009ACD;
+    background-color: #009ACD;
+    border-color: #009ACD;
 }
 
 .button-blue.button-outline {
   color: #00B2EE;
   display: none;
 }
+
 .button-blue.button-outline:hover, .button-blue.button-outline:focus {
-  color: #009ACD;
-  border-color: #009ACD;
-}
-.button-blue.button-clear {
-  color: #00B2EE;
+    color: #009ACD;
+    border-color: #009ACD;
 }
 
-#timer{
-  font-size: 9.0rem;
+.button-blue.button-clear {
+    color: #00B2EE;
+}
+
+#timer {
+    font-size: 9.0rem;
 }

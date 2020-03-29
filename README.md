@@ -39,6 +39,13 @@ More info: http://pomodorotechnique.com
 # Build
 Commit is automatically pushed and deployed to https://try-pomodoro.herokuapp.com/
 
+# Development
+Run
+```$javascript
+grunt
+node index.js
+```
+
 # Coming soon:
 * Integrate with music from sites like http://www.rainymood.com/ to boost productivity. More here: http://www.webdistortion.com/2015/04/14/focus-playlists-for-coding/
 * Task lists
