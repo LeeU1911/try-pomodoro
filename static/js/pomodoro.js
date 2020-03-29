@@ -151,9 +151,9 @@ function pauseTimer(){
 
 function updatePauseButton(){
   /*
-    At this point if isReset
-    Is true Then that mean POMODORO is active so we show the pauseButton
-    Else POMODORO is not active so we don't need the pauseButton so we hide it
+    At this point,
+    if isReset is true Then that mean POMODORO is active so we show the pauseButton
+    else POMODORO is not active so we don't need the pauseButton so we hide it
    */
   if (isReset) {
     document.getElementById("pauseButton").style.display = "inline";
