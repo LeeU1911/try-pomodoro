@@ -13,6 +13,7 @@
 
 .button-blue.button-outline {
   color: #00B2EE;
+  display: none;
 }
 .button-blue.button-outline:hover, .button-blue.button-outline:focus {
   color: #009ACD;

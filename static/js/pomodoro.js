@@ -149,6 +149,13 @@ function pauseTimer(){
 }
 
 function updatePauseButton(){
+
+  if (isReset) {
+    document.getElementById("pauseButton").style.display = "inline";
+  } else {
+    document.getElementById("pauseButton").style.display = "none";
+  }
+
   if(isPause){
     changePauseButtonText('Resume');
   }else{
