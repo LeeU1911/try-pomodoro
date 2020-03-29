@@ -32,6 +32,7 @@ function startTheDay() {
         isPause = true;
     } else {
         changeMainButtonText("Reset");
+        isReset = true;
         startPomodoro();
         isPause = false;
     }
@@ -153,21 +154,31 @@ function pauseTimer() {
     updatePauseButton();
 }
 
-function updatePauseButton() {
-    if (isPause) {
-        changePauseButtonText('Resume');
-    } else {
-        changePauseButtonText('Pause');
-    }
+function updatePauseButton(){
+  /*
+    At this point,
+    if isReset is true Then that mean POMODORO is active so we show the pauseButton
+    else POMODORO is not active so we don't need the pauseButton so we hide it
+   */
+  if (isReset) {
+    document.getElementById("pauseButton").style.display = "inline";
+  } else {
+    document.getElementById("pauseButton").style.display = "none";
+  }
+
+  if(isPause){
+    changePauseButtonText('Resume');
+  }else{
+    changePauseButtonText('Pause');
+  }
 }
 
 function changePauseButtonText(text) {
     document.getElementById('pauseButton').innerHTML = text;
 }
-
+      
 function changeMainButtonText(text) {
-    document.getElementById('mainButton').innerHTML = text;
-    isReset = true;
+  document.getElementById('mainButton').innerHTML = text;
 }
 
 function bing() {
