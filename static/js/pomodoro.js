@@ -33,6 +33,7 @@ function startTheDay(){
   }
   else{
     changeMainButtonText("Reset");
+    isReset = true;
     startPomodoro();
     isPause = false;
   }
@@ -173,7 +174,6 @@ function changePauseButtonText(text){
 
 function changeMainButtonText(text){
   document.getElementById('mainButton').innerHTML = text;
-  isReset = true;
 }
 
 function bing(){
